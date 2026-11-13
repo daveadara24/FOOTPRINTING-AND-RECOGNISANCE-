@@ -109,3 +109,204 @@ All reconnaissance and scanning activities must be conducted within an approved 
 ## Project Status
 
 Currently in progress. Additional practical exercises, screenshots, findings, and analysis will be added as the project develops.
+
+# FOOTPRINTING AND RECONNAISSANCE REPORT
+
+## 1. Introduction
+
+Footprinting and reconnaissance are essential stages of cybersecurity assessment and penetration testing.
+
+They involve gathering information about a target system, domain, or network to understand its infrastructure, technologies, and publicly accessible information.
+
+This practical project demonstrates the use of multiple Kali Linux tools to perform reconnaissance and information gathering.
+
+## 2. Target Information
+
+| Parameter | Details |
+|---|---|
+| Target Domain | networkwalks.com |
+| Operating System | Kali Linux |
+| Assessment Type | Footprinting and Reconnaissance |
+| Project Status | In Progress |
+
+## 3. Objectives
+
+- Gather domain registration information.
+- Identify web technologies.
+- Resolve domain names to IP addresses.
+- Examine HTTP response headers.
+- Detect possible Web Application Firewall protection.
+- Enumerate DNS records.
+- Perform OSINT using theHarvester.
+- Conduct network scanning using Zenmap.
+
+## 4. Tools and Technologies
+
+- WHOIS
+- WhatWeb
+- Nslookup
+- cURL
+- WAFW00F
+- DNSRecon
+- theHarvester
+- Zenmap
+
+## 5. Footprinting and Reconnaissance
+
+### Task 1: WHOIS Lookup
+
+**Objective:** Retrieve domain registration information.
+
+**Command:**
+```bash
+whois networkwalks.com
+```
+
+**Expected information:**
+- Domain registrar
+- Registration dates
+- Expiration dates
+- Name servers
+- Domain status
+
+**Screenshot:** To be added.
+
+**Observations:** Pending actual execution results.
+
+**Analysis:** Pending.
+
+---
+
+### Task 2: Web Technology Fingerprinting
+
+**Objective:** Identify technologies used by the target website.
+
+**Command:**
+```bash
+whatweb https://networkwalks.com
+```
+
+**Expected information:**
+- Web server
+- Content management system
+- Programming technologies
+- Frameworks and libraries
+
+**Screenshot:** To be added.
+
+**Observations:** Pending actual execution results.
+
+**Analysis:** Pending.
+
+---
+
+### Task 3: DNS Resolution
+
+**Objective:** Resolve the target domain to its associated IP address.
+
+**Command:**
+```bash
+nslookup networkwalks.com
+```
+
+**Expected information:**
+- DNS server
+- Domain IP address
+- DNS response
+
+**Screenshot:** To be added.
+
+**Observations:** Pending actual execution results.
+
+**Analysis:** Pending.
+
+---
+
+### Task 4: HTTP Header Inspection
+
+**Objective:** Examine HTTP response headers.
+
+**Command:**
+```bash
+curl -I https://networkwalks.com
+```
+
+**Expected information:**
+- HTTP status code
+- Server information
+- Content type
+- Security headers
+- Redirect information
+
+**Screenshot:** To be added.
+
+**Observations:** Pending actual execution results.
+
+**Analysis:** Pending.
+
+---
+
+### Task 5: WAF Detection
+
+**Objective:** Identify possible Web Application Firewall protection.
+
+**Command:**
+```bash
+wafw00f https://networkwalks.com
+```
+
+**Expected information:**
+- WAF detection status
+- Identified WAF technology, if detected
+
+**Screenshot:** To be added.
+
+**Observations:** Pending actual execution results.
+
+**Analysis:** Pending.
+
+---
+
+### Task 6: DNS Enumeration
+
+**Objective:** Enumerate DNS records associated with the target domain.
+
+**Command:**
+```bash
+dnsrecon -d networkwalks.com
+```
+
+**Expected information:**
+- A records
+- AAAA records
+- MX records
+- NS records
+- TXT records
+
+**Screenshot:** To be added.
+
+**Observations:** Pending actual execution results.
+
+**Analysis:** Pending.
+
+## 6. Footprinting and Reconnaissance with theHarvester
+
+To be documented after the practical exercise.
+
+## 7. Network Scanning with Zenmap
+
+To be documented after the practical exercise.
+
+## 8. Findings and Analysis
+
+To be completed using verified assessment results.
+
+## 9. Security Recommendations
+
+To be determined from the actual findings.
+
+## 10. Conclusion
+
+This project demonstrates practical exposure to footprinting, reconnaissance, information gathering, and network scanning using Kali Linux.
+
+The project will be expanded with execution evidence, observations, and technical analysis as the exercises are completed.
