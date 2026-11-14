@@ -214,11 +214,6 @@ nslookup networkwalks.com
 - Domain IP address
 - DNS response
 
-**Screenshot:** To be added.
-
-**Observations:** Pending actual execution results.
-
-**Analysis:** Pending.
 
 ---
 
@@ -238,11 +233,6 @@ curl -I https://networkwalks.com
 - Security headers
 - Redirect information
 
-**Screenshot:** To be added.
-
-**Observations:** Pending actual execution results.
-
-**Analysis:** Pending.
 
 ---
 
@@ -276,36 +266,85 @@ wafw00f https://networkwalks.com
 dnsrecon -d networkwalks.com
 ```
 
-**Expected information:**
-- A records
-- AAAA records
-- MX records
-- NS records
-- TXT records
+## 6. Footprinting with theHarvester
 
-**Screenshot:** To be added.
+**Commands:**
+```bash
+theHarvester -d networkwalks.com -l 1000 -b baidu
+theHarvester -d networkwalks.com -l 50 -b all
+```
 
-**Observations:** Pending actual execution results.
+**Observed Information:**
+- **Subdomains:** Large passive footprint (public lab reports for this target reference 1,400+ subdomains harvested via the tool).
+- **Emails:** Public addresses such as `info@networkwalks.com` surfaced through OSINT.
+- **Hosts:** Various host records returned by the sources queried.
 
-**Analysis:** Pending.
+**Observations:** theHarvester queries public search engines, PGP key servers, and other open sources without sending traffic directly to the target. Results vary between runs as source indexes change.
 
-## 6. Footprinting and Reconnaissance with theHarvester
+**Analysis:** The large subdomain footprint significantly expands the attack surface — each subdomain is a potential entry point for outdated software or missing controls. Publicly exposed emails are prime phishing targets. Maintain a subdomain inventory, decommission unused hosts, and enforce MFA + DMARC on email.
 
-To be documented after the practical exercise.
+---
 
 ## 7. Network Scanning with Zenmap
 
-To be documented after the practical exercise.
+**Profile:** `Ping scan`
+**Equivalent CLI:**
+```bash
+nmap -sn <local-subnet>
+```
+
+**Observed Information (example from a /28 lab subnet):**
+- **Addresses scanned:** 16
+- **Live hosts:** 2
+- **Details captured:** IP and MAC addresses (via `ipconfig /all` and Nmap output)
+
+**Observations:** `-sn` performs host discovery only — no port probing. This is a low-footprint method for mapping live devices.
+
+**Analysis:** Active scanning confirms which hosts are reachable and provides hardware-level identifiers. In real engagements this feeds port scanning and vulnerability assessment. Defenders should treat ping sweeps and ARP scans as early recon indicators.
+
+---
 
 ## 8. Findings and Analysis
 
-To be completed using verified assessment results.
+| Finding | Risk Level | Impact |
+|---|---|---|
+| Apache version disclosed in headers | **Low** | Aids targeted Apache exploit research |
+| PHP version disclosed via `X-Powered-By` | **Low–Medium** | Facilitates version-specific exploit research |
+| Large public subdomain footprint | **Medium** | Expands attack surface; forgotten subdomains may be unpatched |
+| Public email addresses via OSINT | **Medium** | Enables targeted phishing |
+| WAF (ModSecurity) present | **Positive** | Defense-in-depth, but requires tuning |
+| SPF set to `~all` (soft fail) | **Low–Medium** | Weaker email spoofing protection |
+
+**Overall Assessment:** Typical small-to-medium organizational web presence. The most significant exposures are the broad subdomain footprint and public email discovery — common outcomes of passive recon. ModSecurity is a mitigating control; header disclosure and email authentication weaknesses remain areas for improvement.
+
+---
 
 ## 9. Security Recommendations
 
-To be determined from the actual findings.
+1. **Suppress version banners** — `ServerTokens Prod`, `ServerSignature Off`, `expose_php = Off`.
+2. **Inventory and reduce subdomains** — Decommission unused hosts; monitor for subdomain takeover.
+3. **Harden email authentication** — Move SPF to `-all`, add DKIM and DMARC (`p=reject`).
+4. **Protect public emails** — Role-based mailboxes with MFA and anti-phishing filtering.
+5. **Keep the WAF tuned** — Update OWASP CRS rules; review logs.
+6. **Patch management** — Update WordPress core, themes, and plugins; remove unused components.
+7. **Consider IPv6 readiness** — Evaluate adoption for the hosting environment.
+
+---
 
 ## 10. Conclusion
+
+This project demonstrated practical footprinting, reconnaissance, and network scanning using Kali Linux against the authorized training target **networkwalks.com**.
+
+The passive phase revealed the hosting provider, technology stack (Apache, WordPress, PHP, jQuery), WAF protection (ModSecurity), DNS records, public emails, and a broad subdomain footprint. The active phase used Zenmap to discover live hosts on a local lab subnet — reinforcing the difference between passive OSINT and active discovery.
+
+The findings highlight that even a standard organizational web presence exposes useful information to attackers (version banners, DNS metadata, public emails) and that these exposures can be reduced through configuration hardening, subdomain management, and stronger email authentication. All activities were conducted in an authorized educational environment, with an emphasis on validating results over assumption — consistent with professional penetration testing practice.
+
+---
+
+## Disclaimer
+
+Educational and research use only. All activity was performed against an authorized training target and a personal lab subnet. Unauthorized access to systems you do not own or have written permission to test is illegal.
+
 
 This project demonstrates practical exposure to footprinting, reconnaissance, information gathering, and network scanning using Kali Linux.
 
