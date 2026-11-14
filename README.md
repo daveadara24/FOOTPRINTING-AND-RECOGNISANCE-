@@ -349,3 +349,21 @@ Educational and research use only. All activity was performed against an authori
 This project demonstrates practical exposure to footprinting, reconnaissance, information gathering, and network scanning using Kali Linux.
 
 The project will be expanded with execution evidence, observations, and technical analysis as the exercises are completed.
+
+<img width="1365" height="701" alt="Screenshot 2026-11-13 135252" src="https://github.com/user-attachments/assets/7ae1e6c1-faa5-49dd-889a-cfd0c5132fce" />
+
+<img width="1355" height="686" alt="Screenshot 2026-11-13 073819" src="https://github.com/user-attachments/assets/fac70a6d-5634-4739-ab92-e04450000f94" />
+
+<img width="1365" height="706" alt="Screenshot 2026-11-13 073922" src="https://github.com/user-attachments/assets/9cc74c23-d27a-4d8e-a1af-c4d66eacb8a2" />
+
+<img width="1361" height="646" alt="Screenshot 2026-11-13 074118" src="https://github.com/user-attachments/assets/384a0894-91b9-4e1e-847c-bbf61924d415" />
+
+<img width="1365" height="736" alt="Screenshot 2026-11-13 074240" src="https://github.com/user-attachments/assets/8928fbce-a348-40fa-82d1-47ff7b9c2205" />
+
+<img width="1365" height="736" alt="Screenshot 2026-11-13 074240" src="https://github.com/user-attachments/assets/882c5864-91d4-4428-b59c-fbe7a3554180" />
+
+<img width="1365" height="702" alt="Screenshot 2026-11-13 135132" src="https://github.com/user-attachments/assets/c0d86ade-39a5-42d9-9164-662b15ded3e8" />
+
+<img width="1365" height="696" alt="Screenshot 2026-11-13 135217" src="https://github.com/user-attachments/assets/127238d9-05bb-45e1-8a7d-4dc3ba71244e" />
+
+<img width="1365" height="701" alt="Screenshot 2026-11-13 135252" src="https://github.com/user-attachments/assets/72db5daa-0800-45aa-97e0-3f310fbcfd09" />
